@@ -1,6 +1,6 @@
-import { GET_DEPTH, CANCEL_ORDER, ON_RAMP, GET_OPEN_ORDER, CREATE_ORDER } from ".";
+import { GET_DEPTH, CANCEL_ORDER, ON_RAMP, GET_OPEN_ORDERS, CREATE_ORDER } from ".";
 
-export type messageToEngine = {
+export type MessageToEngine = {
 
     type: typeof CREATE_ORDER,
     data: {
@@ -39,7 +39,7 @@ export type messageToEngine = {
     }
 } |
 {
-    type: typeof GET_OPEN_ORDER,
+    type: typeof GET_OPEN_ORDERS,
     data: {
         userId: string,
         market: string
