@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { RedisManager } from "../types/RedisManager";
+import { RedisManager } from "../RedisManager";
 import { CREATE_ORDER, CANCEL_ORDER, GET_OPEN_ORDERS } from "../types";
 
-const orderRouter = Router();
+export const orderRouter = Router();
 
 orderRouter.post("/", async (req, res) => {
 

@@ -1,6 +1,6 @@
 import { RedisClientType, createClient } from "redis";
-import { MessageFromOrderbook } from ".";
-import { MessageToEngine } from "./to";
+import { MessageFromOrderbook } from "./types";
+import { MessageToEngine } from "./types/to";
 
 
 export class RedisManager {
@@ -31,7 +31,7 @@ export class RedisManager {
                 this.client.unsubscribe(id);
                 resolve(JSON.parse(message));
             })
-            this.publisher.publish("message", JSON.stringify({ clientId: id, message: message }))
+            this.publisher.lPush("message", JSON.stringify({ clientId: id, message: message }))
         })
     }
     public getRandomClientId() {

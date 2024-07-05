@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { RedisManager } from "../types/RedisManager";
+import { RedisManager } from "../RedisManager";
 import { GET_DEPTH } from "../types";
 
-const depthRouter = Router();
+export const depthRouter = Router();
 
 depthRouter.get("/", async (req, res) => {
     const { symbol } = req.query;
