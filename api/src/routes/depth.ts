@@ -1,3 +1,4 @@
+
 import { Router } from "express";
 import { RedisManager } from "../RedisManager";
 import { GET_DEPTH } from "../types";
@@ -12,6 +13,6 @@ depthRouter.get("/", async (req, res) => {
             market: symbol as string
         }
     });
-    return res.json(response.payload);
-})
 
+    res.json(response.payload);
+});

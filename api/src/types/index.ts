@@ -1,43 +1,40 @@
-export const CREATE_ORDER = 'CREATE_ORDER';
-export const CANCEL_ORDER = 'CANCEL_ORDER';
-export const ON_RAMP = 'ON_RAMP';
-export const GET_OPEN_ORDERS = "GET_OPEN_ORDERS";
-export const GET_DEPTH = 'GET_DEPTH';
 
+export const CREATE_ORDER = "CREATE_ORDER";
+export const CANCEL_ORDER = "CANCEL_ORDER";
+export const ON_RAMP = "ON_RAMP";
+export const GET_OPEN_ORDERS = "GET_OPEN_ORDERS";
+export const GET_DEPTH = "GET_DEPTH";
 
 
 export type MessageFromOrderbook = {
-    type: 'DEPTH',
+    type: "DEPTH",
     payload: {
         market: string,
         bids: [string, string][],
-        asks: [string, string][]
+        asks: [string, string][],
     }
-} |
-{
-    type: 'ORDER_PLACED',
+} | {
+    type: "ORDER_PLACED",
     payload: {
-        orderid: String,
+        orderId: string,
         executedQty: number,
-        fills: [{
-            price: string,
-            qty: string,
-            tradeId: String
-        }]
-
+        fills: [
+            {
+                price: string,
+                qty: number,
+                tradeId: number
+            }
+        ]
     }
-} |
-{
-    type: 'ORDER_CANCELED',
+} | {
+    type: "ORDER_CANCELLED",
     payload: {
-        orderid: String,
+        orderId: string,
         executedQty: number,
         remainingQty: number
     }
-} |
-
-{
-    type: 'OPEN_ORDER',
+} | {
+    type: "OPEN_ORDERS",
     payload: {
         orderId: string,
         executedQty: number,
@@ -46,6 +43,4 @@ export type MessageFromOrderbook = {
         side: "buy" | "sell",
         userId: string
     }[]
-
 }
-
